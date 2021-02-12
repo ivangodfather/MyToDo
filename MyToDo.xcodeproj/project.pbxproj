@@ -14,6 +14,8 @@
 		425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB8D25D660360029C443 /* ToDoListView.swift */; };
 		425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB9025D660450029C443 /* ToDoListViewModel.swift */; };
 		425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */; };
+		425DBBA125D66B9A0029C443 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBA025D66B9A0029C443 /* Storage.swift */; };
+		425DBBA525D670040029C443 /* ToDoListToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBA425D670040029C443 /* ToDoListToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		425DBB9025D660450029C443 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 		425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		425DBB9D25D661520029C443 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		425DBBA025D66B9A0029C443 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		425DBBA425D670040029C443 /* ToDoListToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListToolBar.swift; sourceTree = "<group>"; };
+		425DBBAB25D671490029C443 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 		425DBB6D25D65DE10029C443 = {
 			isa = PBXGroup;
 			children = (
+				425DBBAB25D671490029C443 /* Notes.md */,
 				425DBB9D25D661520029C443 /* MyPlayground.playground */,
 				425DBB7825D65DE10029C443 /* MyToDo */,
 				425DBB7725D65DE10029C443 /* Products */,
@@ -63,7 +69,6 @@
 				425DBB7925D65DE10029C443 /* MyToDoApp.swift */,
 				425DBB9725D660C80029C443 /* App */,
 				425DBB9325D6604B0029C443 /* ToDoList */,
-				425DBB8925D65F320029C443 /* Model.xcdatamodeld */,
 				425DBB7D25D65DE10029C443 /* Assets.xcassets */,
 				425DBB8225D65DE10029C443 /* Info.plist */,
 				425DBB7F25D65DE10029C443 /* Preview Content */,
@@ -83,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				425DBB8D25D660360029C443 /* ToDoListView.swift */,
+				425DBBA425D670040029C443 /* ToDoListToolBar.swift */,
 				425DBB9025D660450029C443 /* ToDoListViewModel.swift */,
 			);
 			path = ToDoList;
@@ -91,7 +97,7 @@
 		425DBB9725D660C80029C443 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				425DBB9925D660D30029C443 /* CoreData */,
+				425DBB9925D660D30029C443 /* Storage */,
 				425DBB9825D660CC0029C443 /* Extensions */,
 			);
 			path = App;
@@ -104,12 +110,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		425DBB9925D660D30029C443 /* CoreData */ = {
+		425DBB9925D660D30029C443 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				425DBB8925D65F320029C443 /* Model.xcdatamodeld */,
+				425DBBA025D66B9A0029C443 /* Storage.swift */,
 				425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */,
 			);
-			path = CoreData;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,8 +192,10 @@
 				425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */,
 				425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */,
 				425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */,
+				425DBBA525D670040029C443 /* ToDoListToolBar.swift in Sources */,
 				425DBB8B25D65F320029C443 /* Model.xcdatamodeld in Sources */,
 				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
+				425DBBA125D66B9A0029C443 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

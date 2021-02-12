@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ToDoListView: View {
+
+    @StateObject var viewModel = ToDoListViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(viewModel.todos) { todo in
+                    Text(todo.title ?? "")
+                }
+            }
+            .toolbar { ToDoListToolBar(viewModel: viewModel) }
+        }
     }
 }
 

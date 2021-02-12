@@ -7,8 +7,9 @@
 
 import CoreData
 
-final class CoreDataStorage {
+final class CoreDataStorage: Storage {
 
+    static let shared = CoreDataStorage()
     private let persistentContainer: NSPersistentContainer
     var viewContext: NSManagedObjectContext { persistentContainer.viewContext }
 
@@ -31,8 +32,11 @@ final class CoreDataStorage {
         }
     }
 
-    func delete(object: NSManagedObject) {
-        viewContext.delete(object)
+    func delete(object: Any) {
+        guard let coredataObject = object as? NSManagedObject else {
+            return
+        }
+        viewContext.delete(coredataObject)
         save()
     }
 
@@ -74,6 +78,4 @@ final class CoreDataStorage {
         save()
         return category
     }
-
-
 }
