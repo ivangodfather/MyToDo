@@ -78,4 +78,14 @@ final class CoreDataStorage: Storage {
         save()
         return category
     }
+
+    func getCategories() -> [Category] {
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            print("Uneable to fetch Category. \(error.localizedDescription)")
+        }
+        return []
+    }
 }

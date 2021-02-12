@@ -15,11 +15,11 @@ struct ToDoListView: View {
         NavigationView {
             List {
                 ForEach(viewModel.todos) { todo in
-                    Text(todo.title ?? "")
-                }
+                    Label(todo.title ?? "", systemImage: todo.category?.imageName ?? "")
+                }.onDelete(perform: viewModel.delete)
             }
             .toolbar { ToDoListToolBar(viewModel: viewModel) }
-        }
+        }.onAppear(perform: viewModel.refresh)
     }
 }
 

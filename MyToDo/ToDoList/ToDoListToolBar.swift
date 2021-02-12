@@ -12,8 +12,13 @@ struct ToDoListToolBar: ToolbarContent {
     let viewModel: ToDoListViewModel
 
     var body: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            Text("To do list")
+        }
         ToolbarItem(placement: .navigationBarLeading) {
-            Image(systemName: "plus.rectangle.on.folder")
+            NavigationLink(destination: AddToDoView()) {
+                Image(systemName: "plus")
+            }
         }
     }
 }

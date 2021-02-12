@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 final class ToDoListViewModel: ObservableObject {
     @Published var todos = [ToDo]()
@@ -14,10 +15,15 @@ final class ToDoListViewModel: ObservableObject {
 
     init(storage: Storage = CoreDataStorage.shared) {
         self.storage = storage
-        refresh()
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSManagedObjectContext.didSaveObjectsNotification, object: nil)
     }
 
-    func refresh() {
+    @objc func refresh() {
         todos = storage.getToDos()
+    }
+
+    func delete(indexSet: IndexSet) {
+        indexSet.forEach(storage.delete(object:))
+        todos.remove(atOffsets: indexSet)
     }
 }

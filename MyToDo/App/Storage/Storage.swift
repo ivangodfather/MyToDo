@@ -13,5 +13,6 @@ protocol Storage {
     func getToDos() -> [ToDo]
     func addToDo(title: String, dueDate: Date, category: Category) -> ToDo
     func deleteToDos(indexSet: IndexSet)
+    func getCategories() -> [Category]
     func addCategory(title: String, imageName: String) -> Category
 }
