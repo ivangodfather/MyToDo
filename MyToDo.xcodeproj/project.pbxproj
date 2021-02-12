@@ -8,18 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB7925D65DE10029C443 /* MyToDoApp.swift */; };
-		425DBB7C25D65DE10029C443 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB7B25D65DE10029C443 /* ContentView.swift */; };
 		425DBB7E25D65DE10029C443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425DBB7D25D65DE10029C443 /* Assets.xcassets */; };
 		425DBB8125D65DE10029C443 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425DBB8025D65DE10029C443 /* Preview Assets.xcassets */; };
+		425DBB8B25D65F320029C443 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB8925D65F320029C443 /* Model.xcdatamodeld */; };
+		425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB8D25D660360029C443 /* ToDoListView.swift */; };
+		425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB9025D660450029C443 /* ToDoListViewModel.swift */; };
+		425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		425DBB7625D65DE10029C443 /* MyToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425DBB7925D65DE10029C443 /* MyToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDoApp.swift; sourceTree = "<group>"; };
-		425DBB7B25D65DE10029C443 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		425DBB7D25D65DE10029C443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		425DBB8025D65DE10029C443 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		425DBB8225D65DE10029C443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		425DBB8A25D65F320029C443 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		425DBB8D25D660360029C443 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
+		425DBB9025D660450029C443 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
+		425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		425DBB9D25D661520029C443 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,7 @@
 		425DBB6D25D65DE10029C443 = {
 			isa = PBXGroup;
 			children = (
+				425DBB9D25D661520029C443 /* MyPlayground.playground */,
 				425DBB7825D65DE10029C443 /* MyToDo */,
 				425DBB7725D65DE10029C443 /* Products */,
 			);
@@ -53,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				425DBB7925D65DE10029C443 /* MyToDoApp.swift */,
-				425DBB7B25D65DE10029C443 /* ContentView.swift */,
+				425DBB9725D660C80029C443 /* App */,
+				425DBB9325D6604B0029C443 /* ToDoList */,
+				425DBB8925D65F320029C443 /* Model.xcdatamodeld */,
 				425DBB7D25D65DE10029C443 /* Assets.xcassets */,
 				425DBB8225D65DE10029C443 /* Info.plist */,
 				425DBB7F25D65DE10029C443 /* Preview Content */,
@@ -67,6 +77,39 @@
 				425DBB8025D65DE10029C443 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		425DBB9325D6604B0029C443 /* ToDoList */ = {
+			isa = PBXGroup;
+			children = (
+				425DBB8D25D660360029C443 /* ToDoListView.swift */,
+				425DBB9025D660450029C443 /* ToDoListViewModel.swift */,
+			);
+			path = ToDoList;
+			sourceTree = "<group>";
+		};
+		425DBB9725D660C80029C443 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				425DBB9925D660D30029C443 /* CoreData */,
+				425DBB9825D660CC0029C443 /* Extensions */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		425DBB9825D660CC0029C443 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		425DBB9925D660D30029C443 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				425DBB7C25D65DE10029C443 /* ContentView.swift in Sources */,
+				425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */,
 				425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */,
+				425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */,
+				425DBB8B25D65F320029C443 /* Model.xcdatamodeld in Sources */,
+				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +374,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		425DBB8925D65F320029C443 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				425DBB8A25D65F320029C443 /* Model.xcdatamodel */,
+			);
+			currentVersion = 425DBB8A25D65F320029C443 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 425DBB6E25D65DE10029C443 /* Project object */;
 }
