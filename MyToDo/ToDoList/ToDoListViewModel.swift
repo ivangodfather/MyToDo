@@ -23,7 +23,9 @@ final class ToDoListViewModel: ObservableObject {
     }
 
     func delete(indexSet: IndexSet) {
-        indexSet.forEach(storage.delete(object:))
+        indexSet.forEach {
+            storage.delete(object: todos[$0])
+        }
         todos.remove(atOffsets: indexSet)
     }
 }

@@ -1,18 +1,9 @@
 ##  Questions
 
-1. In CoreDataStorage, what would be a better approax to not have such a convoluted file dealing with ToDos (insert, delete, update...), Categories and future Entities?
+1. In CoreDataStorage.swift, what would be a better approax to not have such a convoluted file dealing with ToDos (insert, delete, update...), Categories and future Entities?
 
-2. In the current approax I create new ToDo and Category separately
-```swift 
-func addToDo(title: String, dueDate: Date, category: Category) -> ToDo
-func addCategory(title: String, imageName: String) -> Category
-```
-I can do this since the relationship between both is optional.
-If this would not have been optional (maybe it should be?), what would be your approax to avoid have such long signature (especially in the future) with so many params like this?
-`func addToDo(title: String, dueDate: Date, category: Category, catTitle: String, catImageName: String) -> ToDo`
-Would you create those entities in the view and just call .save in Coredata?
 
-3. On AddTodoView I have an state that is when the item is saved. On the view at first I wrote this
+2. On AddTodoView I have an state that is when the item is saved. On the view at first I wrote this
 ```case .saved(let todo):
     Text(todo.title ?? "")
         .onAppear { presentationMode.wrappedValue.dismiss() }
@@ -33,6 +24,20 @@ What are your thoughts on that? Thinking again about it, both seems right to me,
         .onAppear { delay(2) { presentationMode.wrappedValue.dismiss() } }
 }
 ```
+3. Would you recommend make everything in this protocol asynchronous?
+```
+protocol Storage {
+    func save()
+    func delete(object: Any)
+    func getToDos() -> [ToDo]
+    func addToDo(title: String, dueDate: Date, category: Category) -> ToDo
+    func deleteToDos(indexSet: IndexSet)
+    func getCategories() -> [Category]
+    func addCategory(title: String, imageName: String) -> Category
+}
+```
+Using Coredata with viewContext makes everything continuos, but, if for example I start using a backgroundContext I would have to change the signature, or any other storage framework like Realm
+So would It be better to keep those usually "expensive" task with async signatures? like `func getToDos() -> AnyPublisher<[ToDo]>`
 
 ## Ideas for next iterations
 0. Add a search bar in the main list to being able to search for both todos and categories.
@@ -41,4 +46,5 @@ What are your thoughts on that? Thinking again about it, both seems right to me,
 3. Do an importer from a json in background
 4. Create a little framework for the app. (maybe extracting coredata? I would like to start as simple as possible so maybe...)
 5. Hability to mark items as done
+6. Any usecase for use DispatchSemaphore
 
