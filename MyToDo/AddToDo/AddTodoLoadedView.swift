@@ -38,8 +38,7 @@ struct AddTodoLoadedView: View {
         .sheet(isPresented: $showAddCategory, onDismiss: {}) {
             AddCategoryView { category in
                 showAddCategory = false
-                viewModel.refresh()
-                categoryIndex = categories.firstIndex { $0 == category } ?? 0
+                viewModel.didAddCategory(category)
             }
         }
     }
