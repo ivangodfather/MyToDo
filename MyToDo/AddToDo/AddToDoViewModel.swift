@@ -18,10 +18,10 @@ final class AddToDoViewModel: ObservableObject {
 
     @Published var state: State = .loading
 
-    private let storage: Storage
+    private let storage: CoreDataStorage
     private var selectedCategory: Category? = nil
 
-    init(storage: Storage = CoreDataStorage()) {
+    init(storage: CoreDataStorage = .shared) {
         self.storage = storage
     }
 
@@ -36,6 +36,12 @@ final class AddToDoViewModel: ObservableObject {
     }
 
     func refresh() {
-        state = .loaded(categories: storage.getCategories())
+        let result: Result<[Category], Error> = storage.items()
+        switch result {
+        case .success(let items):
+            state = .loaded(categories: items)
+        case .failure(let error):
+            state = .error(error.localizedDescription)
+        }
     }
 }

@@ -7,7 +7,11 @@
 
 import CoreData
 
-final class CoreDataStorage: Storage {
+enum CoreDataError: Error {
+    case unknown
+}
+
+final class CoreDataStorage {
 
     static let shared = CoreDataStorage()
     private let persistentContainer: NSPersistentContainer
@@ -22,6 +26,28 @@ final class CoreDataStorage: Storage {
         }
     }
 
+    func items<T: NSManagedObject>(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) -> Result<[T], Error> {
+        let fetchRequest = T.fetchRequest()
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = sortDescriptors
+        do {
+            if let fetchResults = try viewContext.fetch(fetchRequest) as? [T] {
+                return .success(fetchResults)
+            } else {
+                return .failure(CoreDataError.unknown)
+            }
+        } catch {
+            return .failure(error)
+        }
+    }
+
+    @discardableResult
+    func delete<T: NSManagedObject>(_ entity: T) -> Result<Bool, Error> {
+        viewContext.delete(entity)
+        return .success(true)
+    }
+
+
     func save() {
         if viewContext.hasChanges {
             do {
@@ -30,62 +56,5 @@ final class CoreDataStorage: Storage {
                 print("Uneable to save viewContext. \(error.localizedDescription)")
             }
         }
-    }
-
-    func delete(object: Any) {
-        guard let coredataObject = object as? NSManagedObject else {
-            return
-        }
-        viewContext.delete(coredataObject)
-        save()
-    }
-
-    // MARK: ToDo
-
-    func getToDos() -> [ToDo] {
-        let request: NSFetchRequest<ToDo> = ToDo.fetchRequest()
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            print("Uneable to fetch ToDo. \(error.localizedDescription)")
-        }
-        return []
-    }
-
-    func addToDo(title: String, dueDate: Date, category: Category) -> ToDo {
-        let todo = ToDo(context: viewContext)
-        todo.title = title
-        todo.dueDate = dueDate
-        todo.category = category
-        save()
-        return todo
-    }
-
-    func deleteToDos(indexSet: IndexSet) {
-        let items = getToDos()
-        indexSet.forEach {
-            delete(object: items[$0])
-        }
-        save()
-    }
-
-    // MARK: Category
-
-    func addCategory(title: String, imageName: String) -> Category {
-        let category = Category(context: viewContext)
-        category.title = title
-        category.imageName = imageName
-        save()
-        return category
-    }
-
-    func getCategories() -> [Category] {
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            print("Uneable to fetch Category. \(error.localizedDescription)")
-        }
-        return []
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422C671225DE812A00707C91 /* CoreDataStorage+ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C671125DE812A00707C91 /* CoreDataStorage+ToDo.swift */; };
+		422C671525DE814A00707C91 /* CoreDataStorage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C671425DE814A00707C91 /* CoreDataStorage+Category.swift */; };
 		425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB7925D65DE10029C443 /* MyToDoApp.swift */; };
 		425DBB7E25D65DE10029C443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425DBB7D25D65DE10029C443 /* Assets.xcassets */; };
 		425DBB8125D65DE10029C443 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425DBB8025D65DE10029C443 /* Preview Assets.xcassets */; };
@@ -14,7 +16,6 @@
 		425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB8D25D660360029C443 /* ToDoListView.swift */; };
 		425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB9025D660450029C443 /* ToDoListViewModel.swift */; };
 		425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */; };
-		425DBBA125D66B9A0029C443 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBA025D66B9A0029C443 /* Storage.swift */; };
 		425DBBA525D670040029C443 /* ToDoListToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBA425D670040029C443 /* ToDoListToolBar.swift */; };
 		425DBBB025D672620029C443 /* AddToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBAF25D672620029C443 /* AddToDoView.swift */; };
 		425DBBB425D6726B0029C443 /* AddToDoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBB325D6726B0029C443 /* AddToDoViewModel.swift */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		422C671125DE812A00707C91 /* CoreDataStorage+ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataStorage+ToDo.swift"; sourceTree = "<group>"; };
+		422C671425DE814A00707C91 /* CoreDataStorage+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataStorage+Category.swift"; sourceTree = "<group>"; };
 		425DBB7625D65DE10029C443 /* MyToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425DBB7925D65DE10029C443 /* MyToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDoApp.swift; sourceTree = "<group>"; };
 		425DBB7D25D65DE10029C443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		425DBB9025D660450029C443 /* ToDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModel.swift; sourceTree = "<group>"; };
 		425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		425DBB9D25D661520029C443 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		425DBBA025D66B9A0029C443 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		425DBBA425D670040029C443 /* ToDoListToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListToolBar.swift; sourceTree = "<group>"; };
 		425DBBAB25D671490029C443 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 		425DBBAF25D672620029C443 /* AddToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView.swift; sourceTree = "<group>"; };
@@ -130,8 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				425DBB8925D65F320029C443 /* CoreDataStorage.xcdatamodeld */,
-				425DBBA025D66B9A0029C443 /* Storage.swift */,
 				425DBB9A25D660FF0029C443 /* CoreDataStorage.swift */,
+				422C671125DE812A00707C91 /* CoreDataStorage+ToDo.swift */,
+				422C671425DE814A00707C91 /* CoreDataStorage+Category.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -232,13 +235,14 @@
 				425DBBBB25D685FD0029C443 /* AddCategoryViewModel.swift in Sources */,
 				425DBBA525D670040029C443 /* ToDoListToolBar.swift in Sources */,
 				425DBBBE25D689B80029C443 /* AddCategoryToolBar.swift in Sources */,
+				422C671225DE812A00707C91 /* CoreDataStorage+ToDo.swift in Sources */,
 				425DBBB425D6726B0029C443 /* AddToDoViewModel.swift in Sources */,
 				425DBBC725D6C43C0029C443 /* AddTodoLoadedView.swift in Sources */,
 				425DBB8B25D65F320029C443 /* CoreDataStorage.xcdatamodeld in Sources */,
+				422C671525DE814A00707C91 /* CoreDataStorage+Category.swift in Sources */,
 				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
 				425DBBB025D672620029C443 /* AddToDoView.swift in Sources */,
 				425DBBB825D685F40029C443 /* AddCategoryView.swift in Sources */,
-				425DBBA125D66B9A0029C443 /* Storage.swift in Sources */,
 				425DBBC225D68FDA0029C443 /* AddToDoToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
