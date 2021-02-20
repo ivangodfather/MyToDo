@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Category" representedClassName=".Category" syncable="YES" codeGenerationType="class">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
         <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="todos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ToDo" inverseName="category" inverseEntity="ToDo"/>
     </entity>
-    <entity name="ToDo" representedClassName=".ToDo" syncable="YES" codeGenerationType="class">
+    <entity name="ToDo" representedClassName=".ToDo" syncable="YES">
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="todos" inverseEntity="Category"/>

@@ -31,7 +31,7 @@ struct AddCategoryView: View {
                     ForEach(viewModel.categories) { category in
                         HStack {
                             Image(systemName: category.imageName ?? "")
-                            Text(category.title ?? "")
+                            Text(category.title)
                         }
                     }.onDelete(perform: viewModel.delete)
                 }

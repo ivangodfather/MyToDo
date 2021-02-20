@@ -24,6 +24,11 @@
 		425DBBBE25D689B80029C443 /* AddCategoryToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBBD25D689B80029C443 /* AddCategoryToolBar.swift */; };
 		425DBBC225D68FDA0029C443 /* AddToDoToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBC125D68FDA0029C443 /* AddToDoToolBar.swift */; };
 		425DBBC725D6C43C0029C443 /* AddTodoLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBC625D6C43C0029C443 /* AddTodoLoadedView.swift */; };
+		42BF1CDA25E100B8007CD9D4 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */; };
+		42BF1CE225E11C9A007CD9D4 /* ToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */; };
+		42BF1CE325E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */; };
+		42BF1CE825E11D03007CD9D4 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE625E11D03007CD9D4 /* Category+CoreDataClass.swift */; };
+		42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +53,11 @@
 		425DBBBD25D689B80029C443 /* AddCategoryToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryToolBar.swift; sourceTree = "<group>"; };
 		425DBBC125D68FDA0029C443 /* AddToDoToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoToolBar.swift; sourceTree = "<group>"; };
 		425DBBC625D6C43C0029C443 /* AddTodoLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoLoadedView.swift; sourceTree = "<group>"; };
+		42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		42BF1CE625E11D03007CD9D4 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				425DBB7925D65DE10029C443 /* MyToDoApp.swift */,
+				42BF1CD825E100AE007CD9D4 /* SearchBar */,
 				425DBB9725D660C80029C443 /* App */,
 				425DBB9325D6604B0029C443 /* ToDoList */,
 				425DBBAE25D6724F0029C443 /* AddToDo */,
@@ -115,6 +126,10 @@
 		425DBB9725D660C80029C443 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				42BF1CE625E11D03007CD9D4 /* Category+CoreDataClass.swift */,
+				42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */,
+				42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */,
+				42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */,
 				425DBB9925D660D30029C443 /* Storage */,
 				425DBB9825D660CC0029C443 /* Extensions */,
 			);
@@ -158,6 +173,14 @@
 				425DBBBD25D689B80029C443 /* AddCategoryToolBar.swift */,
 			);
 			path = AddCategory;
+			sourceTree = "<group>";
+		};
+		42BF1CD825E100AE007CD9D4 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,9 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */,
+				42BF1CE225E11C9A007CD9D4 /* ToDo+CoreDataClass.swift in Sources */,
 				425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */,
 				425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */,
 				425DBBBB25D685FD0029C443 /* AddCategoryViewModel.swift in Sources */,
+				42BF1CE825E11D03007CD9D4 /* Category+CoreDataClass.swift in Sources */,
+				42BF1CDA25E100B8007CD9D4 /* SearchBarView.swift in Sources */,
+				42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */,
 				425DBBA525D670040029C443 /* ToDoListToolBar.swift in Sources */,
 				425DBBBE25D689B80029C443 /* AddCategoryToolBar.swift in Sources */,
 				422C671225DE812A00707C91 /* CoreDataStorage+ToDo.swift in Sources */,
@@ -242,6 +269,7 @@
 				422C671525DE814A00707C91 /* CoreDataStorage+Category.swift in Sources */,
 				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
 				425DBBB025D672620029C443 /* AddToDoView.swift in Sources */,
+				42BF1CE325E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift in Sources */,
 				425DBBB825D685F40029C443 /* AddCategoryView.swift in Sources */,
 				425DBBC225D68FDA0029C443 /* AddToDoToolBar.swift in Sources */,
 			);

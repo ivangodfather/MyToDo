@@ -50,6 +50,6 @@ final class AddToDoViewModel: ObservableObject {
             state = .error("Uneable to load categories")
             return
         }
-        categoryIndex = categories.firstIndex { $0.title == category.title } ?? 0
+        categoryIndex = categories.firstIndex { $0 === category } ?? 0
     }
 }
