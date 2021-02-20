@@ -11,20 +11,22 @@ import CoreData
 final class ToDoListViewModel: ObservableObject {
     @Published var todos = [ToDo]()
 
-    private let storage: Storage
+    private let storage: CoreDataStorage
 
-    init(storage: Storage = CoreDataStorage.shared) {
+    init(storage: CoreDataStorage = CoreDataStorage.shared) {
         self.storage = storage
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSManagedObjectContext.didSaveObjectsNotification, object: nil)
     }
 
     @objc func refresh() {
-        todos = storage.getToDos()
+        if case Result<[ToDo], Error>.success(let todos) = storage.items() {
+            self.todos = todos
+        }
     }
 
     func delete(indexSet: IndexSet) {
         indexSet.forEach {
-            storage.delete(object: todos[$0])
+            storage.delete(todos[$0])
         }
         todos.remove(atOffsets: indexSet)
     }

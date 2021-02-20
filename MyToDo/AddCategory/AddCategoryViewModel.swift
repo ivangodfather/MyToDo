@@ -12,14 +12,17 @@ final class AddCategoryViewModel: ObservableObject {
     let images = ["hammer.fill", "house.fill", "desktopcomputer", "cart.fill", "photo", "wand.and.rays", "car", "heart.text.square", "ladybug", "gamecontroller"]
     @Published var categories = [Category]()
 
-    private let storage: Storage
+    private let storage: CoreDataStorage
 
-    init(storage: Storage = CoreDataStorage.shared) {
+    init(storage: CoreDataStorage = .shared) {
         self.storage = storage
     }
 
     func refresh() {
-        categories = storage.getCategories()
+        let items: Result<[Category], Error> = storage.items()
+        if let categories = try? items.get() {
+            self.categories = categories
+        }
     }
 
     func add(title: String, imageIndex: Int) -> Category {
@@ -29,7 +32,7 @@ final class AddCategoryViewModel: ObservableObject {
 
     func delete(indexSet: IndexSet) {
         indexSet.forEach { index in
-            storage.delete(object: categories[index])
+            storage.delete(categories[index])
         }
         categories.remove(atOffsets: indexSet)
     }
