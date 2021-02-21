@@ -32,7 +32,7 @@ struct AddToDoView: View {
         }
         .toolbar {
             AddToDoToolBar {
-                viewModel.add(title: todoTitle, dueDate: dueDate)
+                viewModel.add(title: todoTitle, dueDate: dueDate, categoryIndex: categoryIndex)
             }
         }.onReceive(viewModel.$state) { state in
             if case .saved(_) = state {

@@ -17,7 +17,9 @@ struct ToDoListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView(isSearching: $isSearching, mainList: $mainList, searchList: $searchList)
+                SearchBarView() { text in
+                    viewModel.didSearch(text)
+                }
                 List {
                     ForEach(isSearching ? searchList: mainList) { todo in
                         Label(todo.title, systemImage: todo.category?.imageName ?? "")

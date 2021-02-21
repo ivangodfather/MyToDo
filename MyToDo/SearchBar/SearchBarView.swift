@@ -9,11 +9,9 @@ import SwiftUI
 
 struct SearchBarView: View {
 
-    @State private var searchInput: String = ""
-    @Binding var isSearching: Bool
-    @Binding var mainList: [Searchable]
-    @Binding var searchList: [Searchable]
-
+    @State private var search: String = ""
+    @State private var isSearching: Bool = false
+    var searchBlock: (String) -> ()
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
@@ -21,24 +19,19 @@ struct SearchBarView: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .imageScale(.small)
-                    TextField("", text: $searchInput)
-                        .onChange(of: searchInput) { searchText in
-                            guard !searchText.isEmpty else {
-                                searchList = mainList
-                                return
-                            }
+                    TextField("", text: $search)
+                        .onChange(of: search) { searchText in
+                            searchBlock(searchText)
                             withAnimation {
-                                isSearching = true
-                                searchList = mainList.filter { $0.searchableText.range(of: searchText, options: .caseInsensitive) != nil }
+                                isSearching = !searchText.isEmpty
                             }
                         }
                         .foregroundColor(.primary)
                         .accentColor(.primary)
                         .disableAutocorrection(true)
-                    if !searchInput.isEmpty {
+                    if !search.isEmpty {
                         Button(action: {
-                            searchInput = ""
-                            searchList = []
+                            search = ""
                         }) {
                             Image(systemName: "xmark.circle.fill")
                         }
@@ -52,7 +45,6 @@ struct SearchBarView: View {
                         withAnimation {
                             isSearching = false
                         }
-                        searchInput = ""
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }) {
                         Text("Cancel")
@@ -69,6 +61,6 @@ struct SearchBarView: View {
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBarView(isSearching: .constant(true), mainList: .constant([]), searchList: .constant([]))
+        SearchBarView(searchBlock: { _ in })
     }
 }

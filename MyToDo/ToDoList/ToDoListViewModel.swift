@@ -9,8 +9,8 @@ import Foundation
 import CoreData
 
 final class ToDoListViewModel: ObservableObject {
-    @Published var todos = [ToDo]()
 
+    @Published var todos = [ToDo]()
     private let storage: CoreDataStorage
 
     init(storage: CoreDataStorage = CoreDataStorage.shared) {
@@ -29,5 +29,18 @@ final class ToDoListViewModel: ObservableObject {
             storage.delete(todos[$0])
         }
         todos.remove(atOffsets: indexSet)
+    }
+
+    func didSearch(_ text: String) {
+        guard !text.isEmpty else {
+            refresh()
+            return
+        }
+        let predicate1 = NSPredicate(format: "title CONTAINS[cd] %@", text)
+        let predicate2 = NSPredicate(format: "category.title CONTAINS[cd] %@", text)
+        let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1, predicate2])
+        let items: Result<[ToDo], Error> = storage.items(predicate: orPredicate, sortDescriptors: nil)
+        todos = (try? items.get()) ?? []
+
     }
 }
