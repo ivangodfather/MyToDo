@@ -35,7 +35,7 @@ final class AddToDoViewModel: ObservableObject {
     }
 
     func refresh() {
-        let result: Result<[Category], Error> = storage.items()
+        let result: Result<[Category], Error> = storage.items(entity: Category.self)
         switch result {
         case .success(let items):
             state = .loaded(categories: items)

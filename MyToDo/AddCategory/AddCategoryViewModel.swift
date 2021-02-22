@@ -19,7 +19,7 @@ final class AddCategoryViewModel: ObservableObject {
     }
 
     func refresh() {
-        let items: Result<[Category], Error> = storage.items()
+        let items: Result<[Category], Error> = storage.items(entity: Category.self)
         if let categories = try? items.get() {
             self.categories = categories
         }

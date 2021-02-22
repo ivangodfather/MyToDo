@@ -6,33 +6,43 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ToDoDetail: View {
-
-    let todo: ToDo
-    @State private var title: String
-    @State private var dueDate: Date
-
+    @StateObject private var viewModel: ToDoDetailViewModel
+    @Environment(\.presentationMode) var presentationMode
     init(todo: ToDo) {
-        self.todo = todo
-        _title = State(wrappedValue: todo.title)
-        _dueDate = State(wrappedValue: todo.dueDate)
+        self._viewModel = StateObject(wrappedValue: ToDoDetailViewModel(todo: todo))
     }
 
     var body: some View {
         VStack {
-            GroupBox(label: Label(todo.category?.title ?? "", systemImage: todo.category?.imageName ?? "")) {
-                TextField("Title", text: $title)
-                DatePicker("Due date", selection: $dueDate)
+            GroupBox(label: categoryView) {
+                TextField("Title", text: $viewModel.todo.title)
+                DatePicker("Due date", selection: $viewModel.todo.dueDate)
             }.groupBoxStyle(DetailGroupBoxStyle())
+            Spacer()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {}) {
+                Button(action: {
+                    viewModel.save {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }) {
                     Text("Save")
                 }
             }
-        }
+        }.onDisappear(perform: viewModel.didDisappear)
+    }
+
+
+    @ViewBuilder var categoryView: some View {
+        Picker(selection: $viewModel.selectedCategoryIndex, label: Label(viewModel.categories[viewModel.selectedCategoryIndex].title, systemImage: viewModel.categories[viewModel.selectedCategoryIndex].imageName ?? "")) {
+            ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { offset, category in
+                Text(category.title).tag(offset)
+            }
+        }.pickerStyle(MenuPickerStyle())
     }
 }
 
