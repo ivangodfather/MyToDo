@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ToDoListView: View {
-
+    
     @StateObject var viewModel = ToDoListViewModel()
     @State var isSearching = false
     @State private var mainList = [ToDo]()
     @State private var searchList = [ToDo]()
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -22,7 +22,10 @@ struct ToDoListView: View {
                 }
                 List {
                     ForEach(isSearching ? searchList: mainList) { todo in
-                        Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                        NavigationLink(
+                            destination: ToDoDetail(todo: todo)) {
+                            Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                        }
                     }.onDelete(perform: viewModel.delete)
                 }
                 .listStyle(PlainListStyle())
