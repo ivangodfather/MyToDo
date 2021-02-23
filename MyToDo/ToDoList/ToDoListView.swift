@@ -35,11 +35,3 @@ struct ToDoListView_Previews: PreviewProvider {
         ToDoListView()
     }
 }
-
-protocol Searchable {
-    var searchableText: String { get }
-}
-
-extension ToDo: Searchable {
-    var searchableText: String { title }
-}
