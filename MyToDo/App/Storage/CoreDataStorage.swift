@@ -33,11 +33,8 @@ final class CoreDataStorage {
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         do {
-            if let fetchResults = try viewContext.fetch(fetchRequest) as? [T] {
-                return .success(fetchResults)
-            } else {
-                return .failure(CoreDataError.unknown)
-            }
+            let fetchResults = try viewContext.fetch(fetchRequest)
+            return .success(fetchResults)
         } catch {
             return .failure(error)
         }

@@ -25,10 +25,14 @@ final class ToDoDetailViewModel: ObservableObject {
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         childContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         childContext.parent = todo.managedObjectContext
-        categories = try! childContext.fetch(request)
+        do {
+            categories = try childContext.fetch(request)
+        } catch {
+            fatalError("Uneable to load categories")
+        }
         
         guard let item = try? childContext.existingObject(with: todo.objectID) as? ToDo else {
-            fatalError("uneable to load to do")
+            fatalError("Uneable to load to do")
         }
         self.todo =  item
         selectedCategoryIndex = categories.firstIndex { $0.objectID == todo.category?.objectID } ?? 0

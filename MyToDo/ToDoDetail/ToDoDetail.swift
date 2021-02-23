@@ -9,8 +9,10 @@ import SwiftUI
 import CoreData
 
 struct ToDoDetail: View {
+    
     @StateObject private var viewModel: ToDoDetailViewModel
     @Environment(\.presentationMode) var presentationMode
+
     init(todo: ToDo) {
         self._viewModel = StateObject(wrappedValue: ToDoDetailViewModel(todo: todo))
     }
@@ -37,12 +39,17 @@ struct ToDoDetail: View {
     }
 
 
-    @ViewBuilder var categoryView: some View {
-        Picker(selection: $viewModel.selectedCategoryIndex, label: Label(viewModel.categories[viewModel.selectedCategoryIndex].title, systemImage: viewModel.categories[viewModel.selectedCategoryIndex].imageName ?? "")) {
+    @ViewBuilder private var categoryView: some View {
+        Picker(selection: $viewModel.selectedCategoryIndex, label: categoryLabel) {
             ForEach(Array(viewModel.categories.enumerated()), id: \.offset) { offset, category in
                 Text(category.title).tag(offset)
             }
         }.pickerStyle(MenuPickerStyle())
+    }
+
+    private var categoryLabel: some View {
+        Label(viewModel.categories[viewModel.selectedCategoryIndex].title,
+              systemImage: viewModel.categories[viewModel.selectedCategoryIndex].imageName ?? "")
     }
 }
 
