@@ -10,9 +10,6 @@ import SwiftUI
 struct ToDoListView: View {
 
     @StateObject var viewModel = ToDoListViewModel()
-    @State var isSearching = false
-    @State private var mainList = [ToDo]()
-    @State private var searchList = [ToDo]()
 
     var body: some View {
         NavigationView {
@@ -21,7 +18,7 @@ struct ToDoListView: View {
                     viewModel.didSearch(text)
                 }
                 List {
-                    ForEach(isSearching ? searchList: mainList) { todo in
+                    ForEach(viewModel.todos) { todo in
                         Label(todo.title, systemImage: todo.category?.imageName ?? "")
                     }.onDelete(perform: viewModel.delete)
                 }
@@ -30,9 +27,6 @@ struct ToDoListView: View {
             .toolbar { ToDoListToolBar(viewModel: viewModel) }
         }
         .onAppear(perform: viewModel.refresh)
-        .onReceive(viewModel.$todos) { todos in
-            mainList = todos
-        }
     }
 }
 
