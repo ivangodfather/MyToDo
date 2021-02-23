@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ToDoListToolBar: ToolbarContent {
 
-    let viewModel: ToDoListViewModel
+
+    @Binding var showFilterView: Bool
+    let hasFilters: Bool
 
     var body: some ToolbarContent {
         ToolbarItem(placement: .principal) {
@@ -18,6 +20,12 @@ struct ToDoListToolBar: ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             NavigationLink(destination: AddToDoView()) {
                 Image(systemName: "plus")
+            }
+        }
+
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button(action: { showFilterView = true }) {
+                Image(systemName: hasFilters ? "line.horizontal.3.decrease.circle.fill": "line.horizontal.3.decrease.circle")
             }
         }
     }

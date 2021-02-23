@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MyToDoApp: App {
+    @StateObject private var filter = ToDoFilter()
     var body: some Scene {
         WindowGroup {
             ToDoListView()
+                .environmentObject(filter)
         }
     }
 }

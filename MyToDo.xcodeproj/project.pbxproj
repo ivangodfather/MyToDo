@@ -28,6 +28,10 @@
 		425DBBC225D68FDA0029C443 /* AddToDoToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBC125D68FDA0029C443 /* AddToDoToolBar.swift */; };
 		425DBBC725D6C43C0029C443 /* AddTodoLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBBC625D6C43C0029C443 /* AddTodoLoadedView.swift */; };
 		429D028025E414E7002AFAB5 /* ToDoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D027F25E414E7002AFAB5 /* ToDoDetailViewModel.swift */; };
+		429D028625E534D5002AFAB5 /* ToDoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D028525E534D5002AFAB5 /* ToDoFilter.swift */; };
+		429D028A25E5352B002AFAB5 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D028925E5352B002AFAB5 /* FilterView.swift */; };
+		429D028D25E53751002AFAB5 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D028C25E53751002AFAB5 /* FilterViewModel.swift */; };
+		429D029025E53E95002AFAB5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D028F25E53E95002AFAB5 /* Date+.swift */; };
 		42BF1CDA25E100B8007CD9D4 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */; };
 		42BF1CE225E11C9A007CD9D4 /* ToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */; };
 		42BF1CE325E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */; };
@@ -61,6 +65,10 @@
 		425DBBC125D68FDA0029C443 /* AddToDoToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoToolBar.swift; sourceTree = "<group>"; };
 		425DBBC625D6C43C0029C443 /* AddTodoLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoLoadedView.swift; sourceTree = "<group>"; };
 		429D027F25E414E7002AFAB5 /* ToDoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailViewModel.swift; sourceTree = "<group>"; };
+		429D028525E534D5002AFAB5 /* ToDoFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoFilter.swift; sourceTree = "<group>"; };
+		429D028925E5352B002AFAB5 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		429D028C25E53751002AFAB5 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		429D028F25E53E95002AFAB5 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 				421079DB25E393EF0048E5AC /* ToDoDetail */,
 				425DBBAE25D6724F0029C443 /* AddToDo */,
 				425DBBB625D685E50029C443 /* AddCategory */,
+				429D028825E5351B002AFAB5 /* Filter */,
 				425DBB7D25D65DE10029C443 /* Assets.xcassets */,
 				425DBB8225D65DE10029C443 /* Info.plist */,
 				425DBB7F25D65DE10029C443 /* Preview Content */,
@@ -152,6 +161,7 @@
 		425DBB9725D660C80029C443 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				429D028425E534C3002AFAB5 /* Filters */,
 				425DBB9925D660D30029C443 /* Storage */,
 				425DBB9825D660CC0029C443 /* Extensions */,
 				421079E225E39C650048E5AC /* Styles */,
@@ -163,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				421079DF25E394570048E5AC /* ToDo+.swift */,
+				429D028F25E53E95002AFAB5 /* Date+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,6 +212,23 @@
 				425DBBBD25D689B80029C443 /* AddCategoryToolBar.swift */,
 			);
 			path = AddCategory;
+			sourceTree = "<group>";
+		};
+		429D028425E534C3002AFAB5 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				429D028525E534D5002AFAB5 /* ToDoFilter.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		429D028825E5351B002AFAB5 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				429D028925E5352B002AFAB5 /* FilterView.swift */,
+				429D028C25E53751002AFAB5 /* FilterViewModel.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		42BF1CD825E100AE007CD9D4 /* SearchBar */ = {
@@ -280,12 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429D028A25E5352B002AFAB5 /* FilterView.swift in Sources */,
 				425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */,
 				42BF1CE225E11C9A007CD9D4 /* ToDo+CoreDataClass.swift in Sources */,
 				425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */,
 				425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */,
 				425DBBBB25D685FD0029C443 /* AddCategoryViewModel.swift in Sources */,
 				421079E525E39CE80048E5AC /* DetailGroupBoxStyle.swift in Sources */,
+				429D029025E53E95002AFAB5 /* Date+.swift in Sources */,
 				42BF1CE825E11D03007CD9D4 /* Category+CoreDataClass.swift in Sources */,
 				42BF1CDA25E100B8007CD9D4 /* SearchBarView.swift in Sources */,
 				42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */,
@@ -298,7 +328,9 @@
 				425DBB8B25D65F320029C443 /* CoreDataStorage.xcdatamodeld in Sources */,
 				422C671525DE814A00707C91 /* CoreDataStorage+Category.swift in Sources */,
 				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
+				429D028D25E53751002AFAB5 /* FilterViewModel.swift in Sources */,
 				425DBBB025D672620029C443 /* AddToDoView.swift in Sources */,
+				429D028625E534D5002AFAB5 /* ToDoFilter.swift in Sources */,
 				421079DD25E394050048E5AC /* ToDoDetail.swift in Sources */,
 				42BF1CE325E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift in Sources */,
 				425DBBB825D685F40029C443 /* AddCategoryView.swift in Sources */,
