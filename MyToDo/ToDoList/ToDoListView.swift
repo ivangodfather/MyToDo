@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ToDoListView: View {
     
-    @StateObject var viewModel = ToDoListViewModel()
+    @StateObject private var viewModel = ToDoListViewModel()
+    @State private var showFilterView = false
+    @EnvironmentObject var filters: ToDoFilter
 
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView() { text in
+                SearchBarView { text in
                     viewModel.didSearch(text)
                 }
                 List {
@@ -27,9 +29,20 @@ struct ToDoListView: View {
                 }
                 .listStyle(PlainListStyle())
             }
-            .toolbar { ToDoListToolBar(viewModel: viewModel) }
+            .sheet(isPresented: $showFilterView) {
+                FilterView() {
+                    viewModel.refresh()
+                    showFilterView = false
+                }
+            }
+            .toolbar {
+                ToDoListToolBar(showFilterView: $showFilterView, hasFilters: filters.hasFilters)
+            }
         }
-        .onAppear(perform: viewModel.refresh)
+        .onAppear {
+            viewModel.filters = filters
+            viewModel.refresh()
+        }
     }
 }
 
