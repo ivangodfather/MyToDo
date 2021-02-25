@@ -19,7 +19,7 @@ final class ToDoListViewModel: ObservableObject {
     }
 
     @objc func refresh() {
-        if case Result<[ToDo], Error>.success(let todos) = storage.items() {
+        if case Result<[ToDo], Error>.success(let todos) = storage.items(entity: ToDo.self) {
             self.todos = todos
         }
     }
@@ -39,7 +39,7 @@ final class ToDoListViewModel: ObservableObject {
         let predicate1 = NSPredicate(format: "title CONTAINS[cd] %@", text)
         let predicate2 = NSPredicate(format: "category.title CONTAINS[cd] %@", text)
         let orPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1, predicate2])
-        let items: Result<[ToDo], Error> = storage.items(predicate: orPredicate, sortDescriptors: nil)
+        let items: Result<[ToDo], Error> = storage.items(entity: ToDo.self, predicate: orPredicate, sortDescriptors: nil)
         todos = (try? items.get()) ?? []
 
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ToDoListView: View {
-
+    
     @StateObject var viewModel = ToDoListViewModel()
 
     var body: some View {
@@ -19,7 +19,10 @@ struct ToDoListView: View {
                 }
                 List {
                     ForEach(viewModel.todos) { todo in
-                        Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                        NavigationLink(
+                            destination: ToDoDetail(todo: todo)) {
+                            Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                        }
                     }.onDelete(perform: viewModel.delete)
                 }
                 .listStyle(PlainListStyle())
