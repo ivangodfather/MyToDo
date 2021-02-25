@@ -24,7 +24,7 @@ final class AddToDoViewModel: ObservableObject {
         self.storage = storage
     }
 
-    func add(title: String, dueDate: Date) {
+    func add(title: String, dueDate: Date, categoryIndex: Int) {
         guard case let .loaded(categories) = state else {
             state = .error("Uneable to load categories")
             return
@@ -50,6 +50,6 @@ final class AddToDoViewModel: ObservableObject {
             state = .error("Uneable to load categories")
             return
         }
-        categoryIndex = categories.firstIndex { $0.title == category.title } ?? 0
+        categoryIndex = categories.firstIndex { $0 === category } ?? 0
     }
 }

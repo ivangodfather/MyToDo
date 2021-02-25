@@ -13,13 +13,20 @@ struct ToDoListView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.todos) { todo in
-                    Label(todo.title ?? "", systemImage: todo.category?.imageName ?? "")
-                }.onDelete(perform: viewModel.delete)
+            VStack {
+                SearchBarView() { text in
+                    viewModel.didSearch(text)
+                }
+                List {
+                    ForEach(viewModel.todos) { todo in
+                        Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                    }.onDelete(perform: viewModel.delete)
+                }
+                .listStyle(PlainListStyle())
             }
             .toolbar { ToDoListToolBar(viewModel: viewModel) }
-        }.onAppear(perform: viewModel.refresh)
+        }
+        .onAppear(perform: viewModel.refresh)
     }
 }
 

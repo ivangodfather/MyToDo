@@ -28,7 +28,7 @@ struct AddTodoLoadedView: View {
                     ForEach(Array(categories.enumerated()), id: \.offset) { idx, category in
                         HStack {
                             Image(systemName: category.imageName ?? "")
-                            Text(category.title ?? "").tag(idx)
+                            Text(category.title).tag(idx)
                         }
                     }
                 }
