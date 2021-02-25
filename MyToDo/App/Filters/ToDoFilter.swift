@@ -8,11 +8,7 @@
 import SwiftUI
 
 final class ToDoFilter: ObservableObject {
-    @Published var upcoming: Bool = false { didSet { update() } }
-    @Published var categories: [Category] = [] { didSet { update() } }
-    @Published var hasFilters = false
-
-    private func update() {
-        hasFilters = upcoming || !categories.isEmpty
-    }
+    @Published var upcoming: Bool = false
+    @Published var categories: [Category] = []
+    var hasFilters: Bool { upcoming || !categories.isEmpty }
 }

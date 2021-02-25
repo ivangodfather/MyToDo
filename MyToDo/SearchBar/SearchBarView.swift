@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchBarView: View {
 
+    var searchBlock: (String) -> ()
+
     @State private var search: String = ""
     @State private var isSearching: Bool = false
-    var searchBlock: (String) -> ()
+    @State private var cancellables = Set<AnyCancellable>()
+    @State private var searchPublisher = PassthroughSubject<String, Never>()
+
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
@@ -21,7 +26,7 @@ struct SearchBarView: View {
                         .imageScale(.small)
                     TextField("", text: $search)
                         .onChange(of: search) { searchText in
-                            searchBlock(searchText)
+                            searchPublisher.send(searchText)
                             withAnimation {
                                 isSearching = !searchText.isEmpty
                             }
@@ -56,6 +61,13 @@ struct SearchBarView: View {
         }
         .frame(height: 50)
         .padding(.horizontal)
+        .onAppear {
+            searchPublisher
+                .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+                .removeDuplicates()
+                .sink(receiveCompletion: { _ in }, receiveValue: searchBlock)
+                .store(in: &cancellables)
+        }
     }
 }
 

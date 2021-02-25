@@ -14,7 +14,6 @@ extension ToDo {
         todo.title = "Random ToDo"
         let category = Category(context: context)
         category.title = "Grocery shop"
-        category.todos = [todo]
         todo.category = category
         todo.dueDate = Date()
         return todo

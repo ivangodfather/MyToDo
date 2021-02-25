@@ -18,7 +18,7 @@ extension Category {
 
     @NSManaged public var imageName: String?
     @NSManaged public var title: String
-    @NSManaged public var todos: NSSet?
+    @NSManaged public var todos: Set<ToDo>
 
 }
 

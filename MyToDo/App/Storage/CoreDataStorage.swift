@@ -29,7 +29,6 @@ final class CoreDataStorage {
     func items<T: NSManagedObject>(entity: T.Type, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) -> Result<[T], Error> {
         let entityName = String(describing: entity)
         let fetchRequest = NSFetchRequest<T>(entityName: entityName)
-//        let fetchRequest = T.fetchRequest() this does not work lol?
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         do {

@@ -16,7 +16,7 @@ struct ToDoListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                SearchBarView() { text in
+                SearchBarView { text in
                     viewModel.didSearch(text)
                 }
                 List {
