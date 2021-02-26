@@ -23,7 +23,10 @@ struct ToDoListView: View {
                     ForEach(viewModel.todos) { todo in
                         NavigationLink(
                             destination: ToDoDetail(todo: todo)) {
-                            Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                            VStack {
+                                Label(todo.title, systemImage: todo.category?.imageName ?? "")
+                                Text("Priority: \(todo.priority)")
+                            }
                         }
                     }.onDelete(perform: viewModel.delete)
                 }

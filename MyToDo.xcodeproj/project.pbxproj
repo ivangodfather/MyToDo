@@ -69,6 +69,7 @@
 		429D028925E5352B002AFAB5 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		429D028C25E53751002AFAB5 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		429D028F25E53E95002AFAB5 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		429D029C25E8F362002AFAB5 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -529,9 +530,10 @@
 		425DBB8925D65F320029C443 /* CoreDataStorage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				429D029C25E8F362002AFAB5 /* Model 2.xcdatamodel */,
 				425DBB8A25D65F320029C443 /* Model.xcdatamodel */,
 			);
-			currentVersion = 425DBB8A25D65F320029C443 /* Model.xcdatamodel */;
+			currentVersion = 429D029C25E8F362002AFAB5 /* Model 2.xcdatamodel */;
 			path = CoreDataStorage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
