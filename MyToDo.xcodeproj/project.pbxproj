@@ -12,6 +12,10 @@
 		421079E525E39CE80048E5AC /* DetailGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421079E425E39CE80048E5AC /* DetailGroupBoxStyle.swift */; };
 		422C671225DE812A00707C91 /* CoreDataStorage+ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C671125DE812A00707C91 /* CoreDataStorage+ToDo.swift */; };
 		422C671525DE814A00707C91 /* CoreDataStorage+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C671425DE814A00707C91 /* CoreDataStorage+Category.swift */; };
+		4255231225E8F6B5006559AA /* v2ToV3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4255231125E8F6B5006559AA /* v2ToV3.xcmappingmodel */; };
+		4255231525E8F721006559AA /* MigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255231425E8F721006559AA /* MigrationPolicy.swift */; };
+		4255231925E8FCD6006559AA /* Priority+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255231725E8FCD6006559AA /* Priority+CoreDataClass.swift */; };
+		4255231A25E8FCD6006559AA /* Priority+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255231825E8FCD6006559AA /* Priority+CoreDataProperties.swift */; };
 		425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DBB7925D65DE10029C443 /* MyToDoApp.swift */; };
 		425DBB7E25D65DE10029C443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425DBB7D25D65DE10029C443 /* Assets.xcassets */; };
 		425DBB8125D65DE10029C443 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425DBB8025D65DE10029C443 /* Preview Assets.xcassets */; };
@@ -45,6 +49,11 @@
 		421079E425E39CE80048E5AC /* DetailGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupBoxStyle.swift; sourceTree = "<group>"; };
 		422C671125DE812A00707C91 /* CoreDataStorage+ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataStorage+ToDo.swift"; sourceTree = "<group>"; };
 		422C671425DE814A00707C91 /* CoreDataStorage+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataStorage+Category.swift"; sourceTree = "<group>"; };
+		4255230F25E8F53B006559AA /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		4255231125E8F6B5006559AA /* v2ToV3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = v2ToV3.xcmappingmodel; sourceTree = "<group>"; };
+		4255231425E8F721006559AA /* MigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationPolicy.swift; sourceTree = "<group>"; };
+		4255231725E8FCD6006559AA /* Priority+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Priority+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4255231825E8FCD6006559AA /* Priority+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Priority+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		425DBB7625D65DE10029C443 /* MyToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425DBB7925D65DE10029C443 /* MyToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDoApp.swift; sourceTree = "<group>"; };
 		425DBB7D25D65DE10029C443 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +199,10 @@
 				42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */,
 				42BF1CE025E11C9A007CD9D4 /* ToDo+CoreDataClass.swift */,
 				42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */,
+				4255231725E8FCD6006559AA /* Priority+CoreDataClass.swift */,
+				4255231825E8FCD6006559AA /* Priority+CoreDataProperties.swift */,
+				4255231125E8F6B5006559AA /* v2ToV3.xcmappingmodel */,
+				4255231425E8F721006559AA /* MigrationPolicy.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -320,8 +333,11 @@
 				42BF1CE825E11D03007CD9D4 /* Category+CoreDataClass.swift in Sources */,
 				42BF1CDA25E100B8007CD9D4 /* SearchBarView.swift in Sources */,
 				42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */,
+				4255231A25E8FCD6006559AA /* Priority+CoreDataProperties.swift in Sources */,
 				429D028025E414E7002AFAB5 /* ToDoDetailViewModel.swift in Sources */,
 				425DBBA525D670040029C443 /* ToDoListToolBar.swift in Sources */,
+				4255231225E8F6B5006559AA /* v2ToV3.xcmappingmodel in Sources */,
+				4255231525E8F721006559AA /* MigrationPolicy.swift in Sources */,
 				425DBBBE25D689B80029C443 /* AddCategoryToolBar.swift in Sources */,
 				422C671225DE812A00707C91 /* CoreDataStorage+ToDo.swift in Sources */,
 				425DBBB425D6726B0029C443 /* AddToDoViewModel.swift in Sources */,
@@ -330,6 +346,7 @@
 				422C671525DE814A00707C91 /* CoreDataStorage+Category.swift in Sources */,
 				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
 				429D028D25E53751002AFAB5 /* FilterViewModel.swift in Sources */,
+				4255231925E8FCD6006559AA /* Priority+CoreDataClass.swift in Sources */,
 				425DBBB025D672620029C443 /* AddToDoView.swift in Sources */,
 				429D028625E534D5002AFAB5 /* ToDoFilter.swift in Sources */,
 				421079DD25E394050048E5AC /* ToDoDetail.swift in Sources */,
@@ -530,10 +547,11 @@
 		425DBB8925D65F320029C443 /* CoreDataStorage.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				4255230F25E8F53B006559AA /* Model 3.xcdatamodel */,
 				429D029C25E8F362002AFAB5 /* Model 2.xcdatamodel */,
 				425DBB8A25D65F320029C443 /* Model.xcdatamodel */,
 			);
-			currentVersion = 429D029C25E8F362002AFAB5 /* Model 2.xcdatamodel */;
+			currentVersion = 4255230F25E8F53B006559AA /* Model 3.xcdatamodel */;
 			path = CoreDataStorage.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

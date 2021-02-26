@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="todos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ToDo" inverseName="category" inverseEntity="ToDo"/>
+    </entity>
+    <entity name="Priority" representedClassName=".Priority" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="todo" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="ToDo" inverseName="priority" inverseEntity="ToDo"/>
+    </entity>
+    <entity name="ToDo" representedClassName=".ToDo" syncable="YES">
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="todos" inverseEntity="Category"/>
+        <relationship name="priority" maxCount="1" deletionRule="Nullify" destinationEntity="Priority" inverseName="todo" inverseEntity="Priority"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="-54" positionY="9" width="128" height="74"/>
+        <element name="Priority" positionX="516.159912109375" positionY="108.500732421875" width="128" height="88"/>
+        <element name="ToDo" positionX="71.5985107421875" positionY="-214.247802734375" width="128" height="89"/>
+    </elements>
+</model>
