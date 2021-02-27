@@ -12,6 +12,8 @@ struct ToDoDetail: View {
     
     @StateObject private var viewModel: ToDoDetailViewModel
     @Environment(\.presentationMode) var presentationMode
+    @State var showImagePicker: Bool = false
+    @State var image: Image? = nil
 
     init(todo: ToDo) {
         self._viewModel = StateObject(wrappedValue: ToDoDetailViewModel(todo: todo))
@@ -22,7 +24,22 @@ struct ToDoDetail: View {
             GroupBox(label: categoryView) {
                 TextField("Title", text: $viewModel.todo.title)
                 DatePicker("Due date", selection: $viewModel.todo.dueDate)
+                VStack {
+                     Button(action: {
+                         self.showImagePicker.toggle()
+                     }) {
+                         Text("Show image picker")
+                     }
+                    if let data = viewModel.todo.image, let image = UIImage(data: data as Data) {
+                        Image(uiImage: image).resizable().frame(width: 100, height: 100)
+                    }
+                 }
             }.groupBoxStyle(DetailGroupBoxStyle())
+             .sheet(isPresented: $showImagePicker) {
+                 ImagePicker(sourceType: .photoLibrary) { image in
+                    viewModel.todo.image = (image.pngData() as NSData?)
+                 }
+             }
             Spacer()
         }
         .toolbar {
