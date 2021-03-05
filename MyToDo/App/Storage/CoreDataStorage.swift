@@ -20,6 +20,8 @@ final class CoreDataStorage {
     init() {
         persistentContainer = NSPersistentContainer(name: String(describing: CoreDataStorage.self))
         persistentContainer.loadPersistentStores { persistentStoreDescription, error in
+			persistentStoreDescription.shouldMigrateStoreAutomatically = false
+			persistentStoreDescription.shouldInferMappingModelAutomatically = false
             guard error == nil else {
                 fatalError("Uneable to load. \(error?.localizedDescription ?? "")")
             }

@@ -21,6 +21,8 @@ extension ToDo {
     @NSManaged public var category: Category?
     @NSManaged public var priority: Priority
     @NSManaged public var attachments: Set<Attachment>?
+	@NSManaged public var user: String?
+	@NSManaged public var notes: String?
 
 }
 

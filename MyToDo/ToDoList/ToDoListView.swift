@@ -26,6 +26,7 @@ struct ToDoListView: View {
                             VStack {
                                 Label(todo.title, systemImage: todo.category?.imageName ?? "")
                                 Text("Priority: \(todo.priority.value)")
+								Text("User:\(todo.user ?? "Empty") Notes: \(todo.notes ?? "Empty")")
                             }
                         }
                     }.onDelete(perform: viewModel.delete)

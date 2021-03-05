@@ -13,6 +13,8 @@ struct AddTodoLoadedView: View {
     @Binding var todoTitle: String
     @Binding var categoryIndex: Int
     @Binding var dueDate: Date
+	@Binding var user: String
+	@Binding var notes: String
 
     @State private var showAddCategory = false
 
@@ -21,6 +23,8 @@ struct AddTodoLoadedView: View {
         List {
             Section(header: Text("To do details")) {
                 TextField("Write your to do title", text: $todoTitle)
+				TextField("Add your note", text: $notes)
+				TextField("Which user is assigned to", text: $user)
                 DatePicker("Select due date", selection: $dueDate, displayedComponents: .date)
             }
             Section(header: Text("Category"), footer: categoryFooter) {
@@ -52,6 +56,6 @@ struct AddTodoLoadedView: View {
 
 struct AddTodoLoadedView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoLoadedView(viewModel: AddToDoViewModel(), categories: [], todoTitle: .constant(""), categoryIndex: .constant(0), dueDate: .constant(Date()))
+		AddTodoLoadedView(viewModel: AddToDoViewModel(), categories: [], todoTitle: .constant(""), categoryIndex: .constant(0), dueDate: .constant(Date()), user: .constant(""), notes: .constant(""))
     }
 }

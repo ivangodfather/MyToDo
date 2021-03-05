@@ -16,15 +16,17 @@
     </entity>
     <entity name="ToDo" representedClassName=".ToDo" syncable="YES">
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
+        <attribute name="user" optional="YES" attributeType="String"/>
         <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Attachment" inverseName="todo" inverseEntity="Attachment"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="todos" inverseEntity="Category"/>
         <relationship name="priority" maxCount="1" deletionRule="Nullify" destinationEntity="Priority" inverseName="todo" inverseEntity="Priority"/>
     </entity>
     <elements>
+        <element name="Attachment" positionX="144" positionY="-63" width="128" height="59"/>
         <element name="Category" positionX="-54" positionY="9" width="128" height="74"/>
         <element name="Priority" positionX="516.159912109375" positionY="108.500732421875" width="128" height="88"/>
-        <element name="ToDo" positionX="71.5985107421875" positionY="-214.247802734375" width="128" height="104"/>
-        <element name="Attachment" positionX="144" positionY="-63" width="128" height="59"/>
+        <element name="ToDo" positionX="71.5985107421875" positionY="-214.247802734375" width="128" height="134"/>
     </elements>
 </model>
