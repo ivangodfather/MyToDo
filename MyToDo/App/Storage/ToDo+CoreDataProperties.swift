@@ -20,7 +20,7 @@ extension ToDo {
     @NSManaged public var title: String
     @NSManaged public var category: Category?
     @NSManaged public var priority: Priority
-    @NSManaged public var image: NSData?
+    @NSManaged public var attachments: Set<Attachment>?
 
 }
 

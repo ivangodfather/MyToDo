@@ -30,14 +30,16 @@ struct ToDoDetail: View {
                      }) {
                          Text("Show image picker")
                      }
-                    if let data = viewModel.todo.image, let image = UIImage(data: data as Data) {
+                    if let data = viewModel.todo.attachments?.first?.image, let image = UIImage(data: data as Data) {
                         Image(uiImage: image).resizable().frame(width: 100, height: 100)
                     }
                  }
             }.groupBoxStyle(DetailGroupBoxStyle())
              .sheet(isPresented: $showImagePicker) {
                  ImagePicker(sourceType: .photoLibrary) { image in
-                    viewModel.todo.image = (image.pngData() as NSData?)
+                    let attachment = Attachment(context: viewModel.todo.managedObjectContext!)
+                    attachment.image = image.pngData()!
+                    viewModel.todo.attachments?.insert(attachment)
                  }
              }
             Spacer()
