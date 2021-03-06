@@ -23,10 +23,16 @@ struct ToDoListView: View {
                     ForEach(viewModel.todos) { todo in
                         NavigationLink(
                             destination: ToDoDetail(todo: todo)) {
-                            VStack {
-                                Label(todo.title, systemImage: todo.category?.imageName ?? "")
-                                Text("Priority: \(todo.priority.value)")
-                            }
+							HStack {
+								if let data = todo.attachments?.first?.image {
+									Image(uiImage: UIImage(data: data)!)
+										.resizable().frame(width: 100, height: 100, alignment: .center)
+								}
+								VStack {
+									Label(todo.title, systemImage: todo.category?.imageName ?? "")
+									Text("Priority: \(todo.priority.value)")
+								}
+							}
                         }
                     }.onDelete(perform: viewModel.delete)
                 }

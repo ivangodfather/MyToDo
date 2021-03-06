@@ -49,8 +49,10 @@ final class ToDoListViewModel: ObservableObject {
             predicates.append(NSCompoundPredicate(orPredicateWithSubpredicates: categoryPredicates))
         }
         let andPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        let items: Result<[ToDo], Error> = storage.items(entity: ToDo.self, predicate: andPredicate, sortDescriptors: nil)
-        todos = (try? items.get()) ?? []
+		DispatchQueue.main.async {
+			let items: Result<[ToDo], Error> = self.storage.items(entity: ToDo.self, predicate: andPredicate, sortDescriptors: nil)
+			self.todos = (try? items.get()) ?? []
+		}
     }
 
     private func searchPredicate() -> NSPredicate {

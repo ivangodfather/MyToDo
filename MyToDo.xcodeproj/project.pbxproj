@@ -41,6 +41,8 @@
 		42BF1CE325E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */; };
 		42BF1CE825E11D03007CD9D4 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE625E11D03007CD9D4 /* Category+CoreDataClass.swift */; };
 		42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */; };
+		42E11BC625F37BA800DF29A6 /* ImporterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11BC525F37BA800DF29A6 /* ImporterResponse.swift */; };
+		42E11BCA25F3802700DF29A6 /* Priority+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11BC925F3802700DF29A6 /* Priority+.swift */; };
 		42FF868E25EAA08B0033D39F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF868D25EAA08B0033D39F /* ImagePicker.swift */; };
 		42FF869D25EB7B590033D39F /* v3ToV4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 42FF869C25EB7B590033D39F /* v3ToV4.xcmappingmodel */; };
 		42FF86A625EB7DB70033D39F /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF86A525EB7DB70033D39F /* Attachment+CoreDataProperties.swift */; };
@@ -87,6 +89,8 @@
 		42BF1CE125E11C9A007CD9D4 /* ToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42BF1CE625E11D03007CD9D4 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		42E11BC525F37BA800DF29A6 /* ImporterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImporterResponse.swift; sourceTree = "<group>"; };
+		42E11BC925F3802700DF29A6 /* Priority+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Priority+.swift"; sourceTree = "<group>"; };
 		42FF868D25EAA08B0033D39F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		42FF869B25EB79E50033D39F /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		42FF869C25EB7B590033D39F /* v3ToV4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = v3ToV4.xcmappingmodel; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 		425DBB9725D660C80029C443 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				42E11BC425F37B9400DF29A6 /* ImporterResponse */,
 				42FF868C25EAA0820033D39F /* Related */,
 				429D028425E534C3002AFAB5 /* Filters */,
 				425DBB9925D660D30029C443 /* Storage */,
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				421079DF25E394570048E5AC /* ToDo+.swift */,
+				42E11BC925F3802700DF29A6 /* Priority+.swift */,
 				429D028F25E53E95002AFAB5 /* Date+.swift */,
 			);
 			path = Extensions;
@@ -261,6 +267,14 @@
 				42BF1CD925E100B8007CD9D4 /* SearchBarView.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		42E11BC425F37B9400DF29A6 /* ImporterResponse */ = {
+			isa = PBXGroup;
+			children = (
+				42E11BC525F37BA800DF29A6 /* ImporterResponse.swift */,
+			);
+			path = ImporterResponse;
 			sourceTree = "<group>";
 		};
 		42FF868C25EAA0820033D39F /* Related */ = {
@@ -350,6 +364,8 @@
 				429D029025E53E95002AFAB5 /* Date+.swift in Sources */,
 				42BF1CE825E11D03007CD9D4 /* Category+CoreDataClass.swift in Sources */,
 				42BF1CDA25E100B8007CD9D4 /* SearchBarView.swift in Sources */,
+				42E11BCA25F3802700DF29A6 /* Priority+.swift in Sources */,
+				42E11BC625F37BA800DF29A6 /* ImporterResponse.swift in Sources */,
 				42FF86A625EB7DB70033D39F /* Attachment+CoreDataProperties.swift in Sources */,
 				42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */,
 				4255231A25E8FCD6006559AA /* Priority+CoreDataProperties.swift in Sources */,

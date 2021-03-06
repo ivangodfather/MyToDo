@@ -22,11 +22,23 @@ struct ToDoListToolBar: ToolbarContent {
                 Image(systemName: "plus")
             }
         }
+		ToolbarItem(placement: .navigationBarLeading) {
+			Button(action: { CoreDataStorage.shared.deleteAll() 
+			}) {
+				Image(systemName: "minus.square.fill")
+			}
+		}
 
         ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: { showFilterView = true }) {
                 Image(systemName: hasFilters ? "line.horizontal.3.decrease.circle.fill": "line.horizontal.3.decrease.circle")
             }
         }
+		ToolbarItem(placement: .navigationBarTrailing) {
+			Button(action: { CoreDataStorage.shared.importFromResponse(remoteResponse())
+			}) {
+				Image(systemName: "square.and.arrow.down.on.square")
+			}
+		}
     }
 }

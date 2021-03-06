@@ -14,6 +14,7 @@ struct AddToDoView: View {
     @State var dismissView = false
     @State private var todoTitle: String = ""
     @State private var categoryIndex = 0
+	@State private var priority = "0"
     @State private var dueDate = Date()
 
     var body: some View {
@@ -25,14 +26,15 @@ struct AddToDoView: View {
                                   categories: categories,
                                   todoTitle: $todoTitle,
                                   categoryIndex: $categoryIndex,
-                                  dueDate: $dueDate)
+                                  dueDate: $dueDate,
+								  priority: $priority)
             case .error(let error): Text(error)
             default: EmptyView()
             }
         }
         .toolbar {
             AddToDoToolBar {
-                viewModel.add(title: todoTitle, dueDate: dueDate, categoryIndex: categoryIndex)
+				viewModel.add(title: todoTitle, dueDate: dueDate, categoryIndex: categoryIndex, priority: priority)
             }
         }.onReceive(viewModel.$state) { state in
             if case .saved(_) = state {

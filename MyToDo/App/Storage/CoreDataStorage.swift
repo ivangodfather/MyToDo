@@ -14,11 +14,12 @@ enum CoreDataError: Error {
 final class CoreDataStorage {
 
     static let shared = CoreDataStorage()
-    private let persistentContainer: NSPersistentContainer
+    let persistentContainer: NSPersistentContainer
     var viewContext: NSManagedObjectContext { persistentContainer.viewContext }
 
     init() {
         persistentContainer = NSPersistentContainer(name: String(describing: CoreDataStorage.self))
+		viewContext.automaticallyMergesChangesFromParent = false
         persistentContainer.loadPersistentStores { persistentStoreDescription, error in
             guard error == nil else {
                 fatalError("Uneable to load. \(error?.localizedDescription ?? "")")
@@ -26,13 +27,13 @@ final class CoreDataStorage {
         }
     }
 
-    func items<T: NSManagedObject>(entity: T.Type, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil) -> Result<[T], Error> {
+	func items<T: NSManagedObject>(entity: T.Type, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, context: NSManagedObjectContext? = nil) -> Result<[T], Error> {
         let entityName = String(describing: entity)
         let fetchRequest = NSFetchRequest<T>(entityName: entityName)
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sortDescriptors
         do {
-            let fetchResults = try viewContext.fetch(fetchRequest)
+            let fetchResults = try (context ?? viewContext).fetch(fetchRequest)
             return .success(fetchResults)
         } catch {
             return .failure(error)
@@ -55,4 +56,16 @@ final class CoreDataStorage {
             }
         }
     }
+
+	func deleteAll() {
+		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ToDo")
+		let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+		do {
+			try viewContext.execute(deleteRequest)
+			NotificationCenter.default.post(name: NSManagedObjectContext.didSaveObjectsNotification, object: nil, userInfo:nil)
+		} catch let error as NSError {
+			print(error)
+		}
+	}
 }

@@ -13,6 +13,7 @@ struct AddTodoLoadedView: View {
     @Binding var todoTitle: String
     @Binding var categoryIndex: Int
     @Binding var dueDate: Date
+	@Binding var priority: String
 
     @State private var showAddCategory = false
 
@@ -23,6 +24,9 @@ struct AddTodoLoadedView: View {
                 TextField("Write your to do title", text: $todoTitle)
                 DatePicker("Select due date", selection: $dueDate, displayedComponents: .date)
             }
+			Section(header: Text("Prio 0 low 1 med 2 high")) {
+				TextField("Enter number priority", text: $priority)
+			}
             Section(header: Text("Category"), footer: categoryFooter) {
                 Picker("Select a category", selection: $categoryIndex) {
                     ForEach(Array(categories.enumerated()), id: \.offset) { idx, category in
@@ -52,6 +56,6 @@ struct AddTodoLoadedView: View {
 
 struct AddTodoLoadedView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoLoadedView(viewModel: AddToDoViewModel(), categories: [], todoTitle: .constant(""), categoryIndex: .constant(0), dueDate: .constant(Date()))
+		AddTodoLoadedView(viewModel: AddToDoViewModel(), categories: [], todoTitle: .constant(""), categoryIndex: .constant(0), dueDate: .constant(Date()), priority: .constant(""))
     }
 }
