@@ -24,13 +24,13 @@ final class AddToDoViewModel: ObservableObject {
         self.storage = storage
     }
 
-	func add(title: String, dueDate: Date, categoryIndex: Int, user: String, notes: String) {
+	func add(title: String, dueDate: Date, categoryIndex: Int, priority: String) {
         guard case let .loaded(categories) = state else {
             state = .error("Uneable to load categories")
             return
         }
         let category = categories[categoryIndex]
-        let todo = storage.addToDo(title: title, dueDate: dueDate, category: category, user: user, notes: notes)
+		let todo = storage.addToDo(title: title, dueDate: dueDate, category: category, priorty: Int(priority)!)
         state = .saved(todo)
     }
 

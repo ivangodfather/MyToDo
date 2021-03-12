@@ -9,16 +9,13 @@ import Foundation
 
 extension CoreDataStorage {
 
-	func addToDo(title: String, dueDate: Date, category: Category, user: String, notes: String) -> ToDo {
+	func addToDo(title: String, dueDate: Date, category: Category, priorty: Int) -> ToDo {
         let todo = ToDo(context: viewContext)
         todo.title = title
         todo.dueDate = dueDate
         todo.category = category
-		todo.user = user
-		todo.notes = notes
-		let priotiry = Priority(context: viewContext)
-		priotiry.value = 1
-		todo.priority = priotiry
+		let prio = Priority.getPriority(from: priorty, usingContext: CoreDataStorage.shared.viewContext)
+		todo.priority = prio
         save()
         return todo
     }
