@@ -14,6 +14,8 @@ enum CoreDataError: Error {
 final class CoreDataStorage {
 
     static let shared = CoreDataStorage()
+	let migrator = CoreDataMigrator()
+
     let persistentContainer: NSPersistentContainer
     var viewContext: NSManagedObjectContext { persistentContainer.viewContext }
 
@@ -28,6 +30,42 @@ final class CoreDataStorage {
             }
         }
     }
+
+	func setup(completion: @escaping () -> Void) {
+		 loadPersistentStore {
+			 completion()
+		 }
+	 }
+
+	private func loadPersistentStore(completion: @escaping () -> Void) {
+		migrateStoreIfNeeded {
+			self.persistentContainer.loadPersistentStores { description, error in
+				guard error == nil else {
+					fatalError("was unable to load store \(error!)")
+				}
+
+				completion()
+			}
+		}
+	}
+
+	private func migrateStoreIfNeeded(completion: @escaping () -> Void) {
+		guard let storeURL = persistentContainer.persistentStoreDescriptions.first?.url else {
+			fatalError("persistentContainer was not set up properly")
+		}
+
+		if migrator.requiresMigration(at: storeURL, toVersion: CoreDataMigrationVersion.current) {
+			DispatchQueue.global(qos: .userInitiated).async {
+				self.migrator.migrateStore(at: storeURL, toVersion: CoreDataMigrationVersion.current)
+
+				DispatchQueue.main.async {
+					completion()
+				}
+			}
+		} else {
+			completion()
+		}
+	}
 
 	func items<T: NSManagedObject>(entity: T.Type, predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]? = nil, context: NSManagedObjectContext? = nil) -> Result<[T], Error> {
         let entityName = String(describing: entity)
