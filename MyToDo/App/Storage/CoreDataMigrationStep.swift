@@ -41,7 +41,7 @@ extension NSManagedObjectModel {
 
 	static func managedObjectModel(forResource resource: String) -> NSManagedObjectModel {
 		let mainBundle = Bundle.main
-		let subdirectory = "CoreDataStorage"
+		let subdirectory = "CoreDataStorage.momd"
 
 		var omoURL: URL?
 		if #available(iOS 11, *) {

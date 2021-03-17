@@ -21,14 +21,11 @@ final class CoreDataStorage {
 
     init() {
         persistentContainer = NSPersistentContainer(name: String(describing: CoreDataStorage.self))
+		let description = persistentContainer.persistentStoreDescriptions.first
+		description?.shouldInferMappingModelAutomatically = false //inferred mapping will be handled else where
+		description?.shouldMigrateStoreAutomatically = false
 		viewContext.automaticallyMergesChangesFromParent = false
-        persistentContainer.loadPersistentStores { persistentStoreDescription, error in
-			persistentStoreDescription.shouldMigrateStoreAutomatically = false
-			persistentStoreDescription.shouldInferMappingModelAutomatically = false
-            guard error == nil else {
-                fatalError("Uneable to load. \(error?.localizedDescription ?? "")")
-            }
-        }
+		
     }
 
 	func setup(completion: @escaping () -> Void) {
