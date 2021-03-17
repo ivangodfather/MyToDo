@@ -13,7 +13,11 @@ struct MyToDoApp: App {
     var body: some Scene {
         WindowGroup {
             ToDoListView()
-                .environmentObject(filter)
+				.environmentObject(filter).onAppear {
+					CoreDataStorage.shared.setup {
+						
+					}
+				}
         }
     }
 }

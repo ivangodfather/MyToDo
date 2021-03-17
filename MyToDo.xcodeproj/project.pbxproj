@@ -43,6 +43,9 @@
 		42BF1CE925E11D03007CD9D4 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */; };
 		42E11BC625F37BA800DF29A6 /* ImporterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11BC525F37BA800DF29A6 /* ImporterResponse.swift */; };
 		42E11BCA25F3802700DF29A6 /* Priority+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11BC925F3802700DF29A6 /* Priority+.swift */; };
+		42E11C9825FE8F2D00DF29A6 /* CoreDataMigrationVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11C9725FE8F2D00DF29A6 /* CoreDataMigrationVersion.swift */; };
+		42E11C9B25FE90CB00DF29A6 /* CoreDataMigrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11C9A25FE90CB00DF29A6 /* CoreDataMigrationStep.swift */; };
+		42E11CA325FE98C500DF29A6 /* CoreDataMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E11CA225FE98C500DF29A6 /* CoreDataMigration.swift */; };
 		42FF868E25EAA08B0033D39F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF868D25EAA08B0033D39F /* ImagePicker.swift */; };
 		42FF869D25EB7B590033D39F /* v3ToV4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 42FF869C25EB7B590033D39F /* v3ToV4.xcmappingmodel */; };
 		42FF86A625EB7DB70033D39F /* Attachment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FF86A525EB7DB70033D39F /* Attachment+CoreDataProperties.swift */; };
@@ -91,6 +94,9 @@
 		42BF1CE725E11D03007CD9D4 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		42E11BC525F37BA800DF29A6 /* ImporterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImporterResponse.swift; sourceTree = "<group>"; };
 		42E11BC925F3802700DF29A6 /* Priority+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Priority+.swift"; sourceTree = "<group>"; };
+		42E11C9725FE8F2D00DF29A6 /* CoreDataMigrationVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMigrationVersion.swift; sourceTree = "<group>"; };
+		42E11C9A25FE90CB00DF29A6 /* CoreDataMigrationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMigrationStep.swift; sourceTree = "<group>"; };
+		42E11CA225FE98C500DF29A6 /* CoreDataMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMigration.swift; sourceTree = "<group>"; };
 		42FF868D25EAA08B0033D39F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		42FF869B25EB79E50033D39F /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		42FF869C25EB7B590033D39F /* v3ToV4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = v3ToV4.xcmappingmodel; sourceTree = "<group>"; };
@@ -219,6 +225,9 @@
 				4255231125E8F6B5006559AA /* v2ToV3.xcmappingmodel */,
 				42FF869C25EB7B590033D39F /* v3ToV4.xcmappingmodel */,
 				4255231425E8F721006559AA /* MigrationPolicy.swift */,
+				42E11C9725FE8F2D00DF29A6 /* CoreDataMigrationVersion.swift */,
+				42E11C9A25FE90CB00DF29A6 /* CoreDataMigrationStep.swift */,
+				42E11CA225FE98C500DF29A6 /* CoreDataMigration.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 				425DBB9B25D660FF0029C443 /* CoreDataStorage.swift in Sources */,
 				42BF1CE225E11C9A007CD9D4 /* ToDo+CoreDataClass.swift in Sources */,
 				425DBB7A25D65DE10029C443 /* MyToDoApp.swift in Sources */,
+				42E11C9825FE8F2D00DF29A6 /* CoreDataMigrationVersion.swift in Sources */,
 				425DBB8E25D660360029C443 /* ToDoListView.swift in Sources */,
 				425DBBBB25D685FD0029C443 /* AddCategoryViewModel.swift in Sources */,
 				421079E525E39CE80048E5AC /* DetailGroupBoxStyle.swift in Sources */,
@@ -384,6 +394,8 @@
 				425DBB9125D660450029C443 /* ToDoListViewModel.swift in Sources */,
 				429D028D25E53751002AFAB5 /* FilterViewModel.swift in Sources */,
 				4255231925E8FCD6006559AA /* Priority+CoreDataClass.swift in Sources */,
+				42E11CA325FE98C500DF29A6 /* CoreDataMigration.swift in Sources */,
+				42E11C9B25FE90CB00DF29A6 /* CoreDataMigrationStep.swift in Sources */,
 				425DBBB025D672620029C443 /* AddToDoView.swift in Sources */,
 				429D028625E534D5002AFAB5 /* ToDoFilter.swift in Sources */,
 				421079DD25E394050048E5AC /* ToDoDetail.swift in Sources */,
